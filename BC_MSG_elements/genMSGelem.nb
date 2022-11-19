@@ -1,0 +1,222 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8292,        214]
+NotebookOptionsPosition[      7620,        197]
+NotebookOutlinePosition[      7969,        212]
+CellTagsIndexPosition[      7926,        209]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.859246908501648*^9, {3.8592471139932747`*^9, 
+   3.859247191967925*^9}},ExpressionUUID->"97f0fd98-6e24-41cb-9967-\
+707a3924efd5"],
+
+Cell[BoxData[
+ RowBox[{"<<", "\"\<MSGCorep`\>\"", " "}]], "Input",
+ CellChangeTimes->{{3.8592471960279293`*^9, 3.859247198737287*^9}, {
+   3.8592507451011267`*^9, 3.859250750764242*^9}, 
+   3.859250808128405*^9},ExpressionUUID->"079ea363-ebfa-4616-bb23-\
+29ccc00684a2"],
+
+Cell[BoxData[
+ RowBox[{"<<", "\"\<MathPrintF`\>\"", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"https", ":"}], "//", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"github", ".", "com"}], "/", "vlsd"}], "/", "MathPrintF"}]}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.859248250803259*^9, 3.859248254968919*^9}, {
+  3.859248699739891*^9, 3.8592487050174303`*^9}, {3.859250772950057*^9, 
+  3.85925077751812*^9}, {3.859250809415313*^9, 3.8592508105828753`*^9}, {
+  3.859250883918603*^9, 
+  3.859250884494542*^9}},ExpressionUUID->"5cf01f93-8a77-4c3e-bfa2-\
+776e1c408572"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"genMSGtxt", "[", 
+   RowBox[{"{", 
+    RowBox[{"sgno_", ",", "mno_"}], "}"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"brav", ",", "out", ",", "str", ",", "msg"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"msg", "=", 
+      RowBox[{"getMSGElem", "[", 
+       RowBox[{"{", 
+        RowBox[{"sgno", ",", "mno"}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"msg", "=", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{"msg", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], "\[Equal]", "0"}], "&"}]}], 
+         "]"}], ",", 
+        RowBox[{"Select", "[", 
+         RowBox[{"msg", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], "\[Equal]", "1"}], "&"}]}], 
+         "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"brav", "=", 
+      RowBox[{"getSGLatt", "[", "sgno", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"out", "=", 
+      RowBox[{"Table", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"str", "=", 
+          RowBox[{"StringJoin", "@", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"sprintf", "[", 
+               RowBox[{"\"\<%3d\>\"", ",", "#"}], "]"}], "&"}], "/@", 
+             RowBox[{"Flatten", "@", 
+              RowBox[{"getRotMat", "[", 
+               RowBox[{
+                RowBox[{"getSGLatt", "[", "sgno", "]"}], ",", 
+                RowBox[{"elem", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}]}], ")"}]}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"str", "=", 
+          RowBox[{"str", "<>", 
+           RowBox[{"StringJoin", "@", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"sprintf", "[", 
+                RowBox[{"\"\<%12.6f\>\"", ",", "#"}], "]"}], "&"}], "/@", 
+              RowBox[{"elem", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}]}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"str", "=", 
+          RowBox[{"str", "<>", 
+           RowBox[{"StringJoin", "@", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"sprintf", "[", 
+                RowBox[{"\"\<%12.6f\>\"", ",", "#"}], "]"}], "&"}], "/@", 
+              RowBox[{"(", 
+               RowBox[{"Flatten", "@", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Re", "[", "#", "]"}], ",", 
+                    RowBox[{"Im", "[", "#", "]"}]}], "}"}], "&"}], "/@", 
+                  RowBox[{"Flatten", "@", 
+                   RowBox[{
+                    RowBox[{"getSpinRotOp", "[", 
+                    RowBox[{"elem", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], ")"}]}], ")"}]}], 
+             ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"str", "=", 
+          RowBox[{"str", "<>", 
+           RowBox[{"sprintf", "[", 
+            RowBox[{"\"\<%3d\>\"", ",", 
+             RowBox[{
+              RowBox[{"elem", "[", 
+               RowBox[{"[", "3", "]"}], "]"}], "/.", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"0", "\[Rule]", "1"}], ",", 
+                RowBox[{"1", "\[Rule]", 
+                 RowBox[{"-", "1"}]}]}], "}"}]}]}], "]"}]}]}], ";", 
+         "\[IndentingNewLine]", "str"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"{", 
+         RowBox[{"elem", ",", "msg"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"out", "=", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{"out", ",", 
+        RowBox[{"ToString", "@", 
+         RowBox[{"Length", "[", "msg", "]"}]}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{"sprintf", "[", 
+        RowBox[{"\"\<BC-MSG_elem_%d.%d.txt\>\"", ",", "sgno", ",", "mno"}], 
+        "]"}], ",", "out"}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8592487153728027`*^9, 3.859248720236768*^9}, {
+   3.859248774997643*^9, 3.8592487784858418`*^9}, {3.859248847165018*^9, 
+   3.859248970435815*^9}, {3.8592490569266567`*^9, 3.859249214245479*^9}, {
+   3.8592492608296223`*^9, 3.859249261813106*^9}, {3.8592494266609592`*^9, 
+   3.859249568727705*^9}, {3.8592496680544357`*^9, 3.8592496767193327`*^9}, {
+   3.859249710245534*^9, 3.8592497176605167`*^9}, {3.859249751067679*^9, 
+   3.8592498436792383`*^9}, {3.859249960903741*^9, 3.859249963636464*^9}, 
+   3.859250001948669*^9, {3.85925003818782*^9, 3.859250086046445*^9}, 
+   3.859250957743411*^9, {3.859251028201037*^9, 3.8592510601194677`*^9}, {
+   3.8592510957917147`*^9, 3.859251130511585*^9}, {3.8592511987180777`*^9, 
+   3.859251237095565*^9}, {3.859251311609164*^9, 3.8592513352100763`*^9}, {
+   3.8592516322770243`*^9, 3.859251721407928*^9}, {3.859251754464609*^9, 
+   3.859251762016464*^9}, {3.8592518267243013`*^9, 3.859251913784315*^9}, {
+   3.859251965096586*^9, 3.859252016827312*^9}, {3.8592521628708353`*^9, 
+   3.859252170557407*^9}, {3.859253244566725*^9, 3.8592532447397003`*^9}, {
+   3.8592534964337797`*^9, 3.8592535210584106`*^9}, {3.859253552336996*^9, 
+   3.859253607723496*^9}},ExpressionUUID->"9e9a2c5d-cfd8-411a-877e-\
+f2b1f8567ccc"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"genMSGtxt", "/@", 
+    RowBox[{"Keys", "[", "MSGSymText", "]"}]}], ";"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.85925329658956*^9, 3.859253347506428*^9}, {
+  3.8592537695678253`*^9, 
+  3.8592538015998993`*^9}},ExpressionUUID->"a6de5e42-df98-4820-8361-\
+01b89c6e21b5"]
+},
+WindowSize->{1416, 787},
+WindowMargins->{{Automatic, 226}, {101, Automatic}},
+FrontEndVersion->"11.2 for Linux x86 (64-bit) (2017\:5e749\:670810\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 277, 7, 31, "Input",ExpressionUUID->"97f0fd98-6e24-41cb-9967-707a3924efd5"],
+Cell[838, 29, 269, 5, 31, "Input",ExpressionUUID->"079ea363-ebfa-4616-bb23-29ccc00684a2"],
+Cell[1110, 36, 570, 14, 31, "Input",ExpressionUUID->"5cf01f93-8a77-4c3e-bfa2-776e1c408572"],
+Cell[1683, 52, 5598, 133, 331, "Input",ExpressionUUID->"9e9a2c5d-cfd8-411a-877e-f2b1f8567ccc"],
+Cell[7284, 187, 332, 8, 31, "Input",ExpressionUUID->"a6de5e42-df98-4820-8361-01b89c6e21b5"]
+}
+]
+*)
+
