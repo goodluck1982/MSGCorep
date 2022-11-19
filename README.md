@@ -51,20 +51,20 @@ Then one can use the package after running **```<<MSGCorep` ```** or **```<<"MSG
 **Tips**: Use ```?MSGCorep`*``` to obtain a list of all public functions and vairables in the package. And similarly, you can also use ```?MSGCorep`*MLG*``` to obtain a list of all public functions and variables whose names contain "MLG".
 
 ## Exhibition
-##### <center>Show the list of MSGs specified by their family numbers</cener>
+### 1. Show the list of MSGs specified by their family numbers
 ![showMSGSym[1;;5]](imgs/showMSGSym.png)
-<hr>
-##### <center>The small coreps of the P point of MSG 97.155</cener>
+
+### 2. The small coreps of the P point of MSG 97.155
 ![showMLGCorep[{97,155},"P"]](imgs/MLGCorep-97.155-P.png)
-<hr>
-##### <center>The full coreps of the magnetic star <sup>\*</sup>X of MSG 79.27</cener>
+
+### 3. The full coreps of the magnetic star <sup>\*</sup>X of MSG 79.27
 ![showMSGCorep[{79.27},"X"]](imgs/MSGCorep-79.27-X.png)
-<hr>
-##### <center>The direct product of full coreps between magnetic stars <sup>\*</sup>X and <sup>\*</sup>R for MSG 75.4</cener>
+
+### 4. The direct product of full coreps between magnetic stars <sup>\*</sup>X and <sup>\*</sup>R for MSG 75.4
 ![showMSGCorepDirectProduct[{75, 4}, "X", "R"]](imgs/DirectProduct-75.4-X-R.png)
-<hr>
-##### <center>Determined small coreps for energy bands</cener>
-![small coreps of bands]](imgs/band-small-coreps.png)
-<hr>
-##### <center>MPG support</cener>
-![MPG support]](imgs/MPG-support.png)
+
+### 5. Determined small coreps for energy bands
+![small coreps of bands](imgs/band-small-coreps.png)
+
+### 6. MPG support
+![MPG support](imgs/MPG-support.png)
