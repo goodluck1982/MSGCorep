@@ -6,7 +6,7 @@ A mathematica package for irreducible corepresentations (coreps) of all the 1651
 * 点击上面链接加入 SpaceGroupIrep/MSGCorep 使用交流微信群，如无法加入可邮件联系。
 
 ## Please refer to the following papers for details of the code:
-* [arXiv:2211.10740](https://arxiv.org/abs/2211.10740)
+* [Comput. Phys. Commun. **288** , 108722 (2023)](https://doi.org/10.1016/j.cpc.2023.108722)   ([arXiv:2211.10740](https://arxiv.org/abs/2211.10740))
 * [Comput. Phys. Commun. **265** , 107993 (2021)](https://doi.org/10.1016/j.cpc.2021.107993)   ([arXiv:2012.08871](http://arxiv.org/abs/2012.08871))
 
 If you use this package in your research, please cite the above papers.
