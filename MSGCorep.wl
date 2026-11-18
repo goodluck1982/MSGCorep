@@ -13,7 +13,7 @@
 
 
 With[{p=DirectoryName[$InputFileName]}, If[!MemberQ[$Path,p],AppendTo[$Path, p]]];
-MSGCorep`Private`Version={1,0,0};                    (*Specify version here.*)
+MSGCorep`Private`Version={1,1,0};                    (*Specify version here.*)
 MSGCorep`Private`SpaceGroupIrepDependency={1,2,3};   (*Specify dependency here.*)
 
 Check[BeginPackage["MSGCorep`", {"SpaceGroupIrep`","LittleGroupIrepData`"}],
@@ -2355,7 +2355,8 @@ showMSGCorep[{sgno_,mno_}, kNameOrCoord_, BZtype_, OptionsPattern[]]:=Block[{u,c
          If[kstar2b!={}, Row[{" and ",emph[sstar<>kname2b],"(",knp[nka+1], If[nka>1,"~"<>knp[2nka],Nothing],")"}], Nothing],
          " ("<>knp["i"]<>"=T\[Transpose]."<>kn["i"],If[kBZ2b!={}&&keqmod[kBZ2a[[1]],-kBZ2b[[1]]],", "<>sstar<>kname2b<>"\[DoubleLeftRightArrow]-"<>sstar<>kname2a,Nothing],")\n",
          sstar<>kname2a<>": ",Style[Row[Row[{knp[#],"=(",Row[kstar2a[[#]],","],")"}]&/@Range@Length[kstar2a],";  "],Darker[Red]],
-         If[kstar2b!={},Row[{"\n"<>sstar<>kname2b<>": ",Style[Row[Row[{knp[#+nka],"=(",Row[kstar2b[[#]],","],")"}]&/@Range@Length[kstar2a],";  "],Darker[Red]]}],Nothing]}]
+         If[kstar2b!={},"\n",Nothing],
+         If[kstar2b!={},Row[{sstar<>kname2b<>": ",Style[Row[Row[{knp[#+nka],"=(",Row[kstar2b[[#]],","],")"}]&/@Range@Length[kstar2a],";  "],Darker[Red]]}],Nothing]}]
     ,(* ----- else ----- *) 
     Row[{"\[FilledRightTriangle] The k-star of the unitary subgroup: ",emph[sstar<>kname2a],"(",kn[1], If[nka>1,"~"<>kn[nka],Nothing],")", 
          If[kstar2b!={}, Row[{" and ",emph[sstar<>kname2b],"(",kn[nka+1], If[nka>1,"~"<>kn[2nka],Nothing],")"}], Nothing],
